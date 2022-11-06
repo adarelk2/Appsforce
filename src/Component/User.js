@@ -89,7 +89,7 @@ class User extends React.Component {
         case "add":
           
           let rows = this.parent.app.state.rows;
-          rows.push({login:{uuid:Date.now()},name:{first:this.state.firstName, last:this.state.lastName}, email:this.state.email, location:{country:"Israel", city:"Afula"}});
+          rows.push({login:{uuid:Date.now()},name:{first:this.state.firstName, last:this.state.lastName}, gender:"male", email:this.state.email, location:{country:"Israel", city:"Afula"}});
           this.parent.app.setState({rows})
           this.parent.app.setState({Component:"UsersTable"})
           break;
