@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
+import UsersTable from './Component/UsersTable';
+import User from './Component/User';
+class App extends React.Component 
+{
+  constructor(_props)
+  {
+      super();
+        
+      this.state = {Component:_props.Component,rows:[],userSelected:false};
+  }
+  
+  render() 
+  {
+    switch(this.state.Component)
+    {
+      case "UsersTable":
+        return (<UsersTable app={this}/>);
+      break;
+      
+      case "editUser":
+        return (<User app={this} command="edit"/>);
+        break;
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        case "createUser":
+        return (<User app={this} command="add"/>);
+        break;
+    }
+  }
+
 }
 
 export default App;
